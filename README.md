@@ -12,6 +12,12 @@ This project uses the Gradle build system.  Clone the project from GitHub and op
 This project was developed using Android Studio Artic Fox so make sure your IDE is updated. 
 After cloning, make sure your device has internet connectivity and run the project.
 
+Screenshots
+-----------
+
+![App Screenshots](screenshots/screenshot.mp4 "ScreenShot")
+
+
 Libraries Used
 --------------
 * [Architecture][10] - Jetpack architechure libraries. A collection of libraries 

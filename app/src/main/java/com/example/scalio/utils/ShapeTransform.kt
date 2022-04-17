@@ -2,7 +2,12 @@ package com.example.scalio.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Path
+import android.graphics.RectF
+import android.graphics.Paint
+import android.graphics.Shader
+import android.graphics.BitmapShader
 import androidx.annotation.StyleRes
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap

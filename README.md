@@ -1,3 +1,6 @@
+[![Android CI](https://github.com/kolanse/Scallo/actions/workflows/main.yml/badge.svg)]
+(https://github.com/kolanse/Scallo/actions/workflows/main.yml)
+
 # Android Developer Test for Scal.Io
 
 This app fetches a list of github users and displays the results in the UI. The app paginates the response. 

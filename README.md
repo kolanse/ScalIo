@@ -15,7 +15,7 @@ After cloning, make sure your device has internet connectivity and run the proje
 Screenshots
 -----------
 
-![App Screenshots](screenshots/screenshot.mp4 "ScreenShot")
+![App Screenshots](screenshots/screenshot.gif "ScreenShot")
 
 
 Libraries Used

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ScalIo</string>
+    <string name="app_database">Appdatabase</string>
+    <string name="user_login_placeholder">Loggo</string>
+    <string name="user_type_placeholder">User</string>
+    <string name="search_hint">Type in User Name</string>
+    <string name="retry">Retry</string>
+    <string name="no_result">No results found! Try another search term.</string>
+</resources>

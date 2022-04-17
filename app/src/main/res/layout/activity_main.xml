@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_700"
+    tools:context=".ui.UserActivity">
+
+    <EditText
+        android:id="@+id/search_box_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:lines="1"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        android:selectAllOnFocus="true"
+        android:inputType="textCapWords"
+        android:imeOptions="actionSearch"
+        android:hint="@string/search_hint"
+        android:layout_marginTop="@dimen/grid_3"
+        android:layout_marginHorizontal="@dimen/grid_3"
+        android:textAppearance="?attr/textAppearanceSubtitle1"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/search_icon"
+        android:layout_marginEnd="@dimen/grid_3"
+        app:layout_constraintTop_toTopOf="@id/search_box_et"
+        app:layout_constraintBottom_toBottomOf="@id/search_box_et"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/search_box_et"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/grid_2"
+        android:layout_marginBottom="@dimen/grid_1"
+        tools:listitem="@layout/user_recycler_item"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/empty_list_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/retry_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/retry_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/yellow_400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

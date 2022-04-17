@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.scalio"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.example.scalio.HiltTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    allprojects {
+        apply plugin: "org.jlleitschuh.gradle.ktlint"
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+
+    //testing depedencies
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtJunit"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiAutomatorVersion"
+    androidTestImplementation "androidx.work:work-testing:$rootProject.workVersion"
+    androidTestImplementation "com.google.truth:truth:$rootProject.truthVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.coroutinesVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltVersion"
+    kaptTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    androidTestImplementation "app.cash.turbine:turbine:0.7.0"
+    testImplementation 'org.robolectric:robolectric:4.7.3'
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.7.2"
+
+
+
+
+
+
+
+    //lifecycle coroutines
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha04'
+
+
+    //glide
+    implementation('com.github.bumptech.glide:okhttp3-integration:4.9.0') {
+        exclude group: 'glide-parent'
+    }
+
+    def activity_version = "1.4.0"
+    implementation "androidx.activity:activity-ktx:$activity_version"
+
+    //paging 3
+
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$rootProject.hiltVersion"
+
+    //network
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+
+
+    //room
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    testImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+    implementation "androidx.room:room-paging:2.5.0-alpha01"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+}

@@ -1,5 +1,5 @@
-[![Android CI](https://github.com/kolanse/ScalIo/actions/workflows/main.yml/badge.svg)]
-(https://github.com/kolanse/ScalIo/actions/workflows/main.yml)
+![Android CI](https://github.com/kolanse/ScalIo/actions/workflows/main.yml/badge.svg)
+
 
 
 # Android Developer Test for Scal.Io

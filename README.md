@@ -1,4 +1,4 @@
-![Android CI](https://github.com/kolanse/ScalIo/actions/workflows/Android CI/badge.svg)
+![Android CI](https://github.com/kolanse/ScalIo/actions/workflows/main.yml/badge.svg)
 
 
 

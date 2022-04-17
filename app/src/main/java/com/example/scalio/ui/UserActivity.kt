@@ -16,12 +16,22 @@ import com.example.scalio.data.model.User
 import com.example.scalio.databinding.ActivityMainBinding
 import com.example.scalio.ui.adapter.UsersAdapter
 import com.example.scalio.ui.adapter.UsersLoadStateAdapter
-import com.example.scalio.utils.*
+import com.example.scalio.utils.BottomMarginItemDecoration
+import com.example.scalio.utils.RemotePresentationState
+import com.example.scalio.utils.SpringAddItemAnimator
+import com.example.scalio.utils.asRemotePresentationState
+import com.example.scalio.utils.hideKeyboard
+import com.example.scalio.utils.showSnackBar
 import com.example.scalio.viewmodel.UiAction
 import com.example.scalio.viewmodel.UiState
 import com.example.scalio.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -37,7 +47,6 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         binding.searchBoxEt.requestFocus()
         binding.userRv.apply {
@@ -108,10 +117,10 @@ class UserActivity : AppCompatActivity() {
             uiState
                 .map { it.query }
                 .distinctUntilChanged()
-                .collect{
-                 searchBoxEt.setText(it)
-                binding.searchBoxEt.requestFocus()
-                binding.searchBoxEt.setSelection(binding.searchBoxEt.text.length)
+                .collect {
+                    searchBoxEt.setText(it)
+                    binding.searchBoxEt.requestFocus()
+                    binding.searchBoxEt.setSelection(binding.searchBoxEt.text.length)
                 }
         }
     }
@@ -159,7 +168,7 @@ class UserActivity : AppCompatActivity() {
         lifecycleScope.launch {
             pagingData.collectLatest {
                 userRv.doOnNextLayout {
-          startPostponedEnterTransition()
+                    startPostponedEnterTransition()
                 }
                 usersAdapter.submitData(it)
             }

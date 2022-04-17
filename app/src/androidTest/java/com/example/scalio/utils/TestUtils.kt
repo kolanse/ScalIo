@@ -1,6 +1,6 @@
 package com.example.scalio.utils
 
-import androidx.paging.*
+import androidx.paging.DifferCallback
 import com.example.scalio.data.model.RemoteKeys
 import com.example.scalio.data.model.User
 

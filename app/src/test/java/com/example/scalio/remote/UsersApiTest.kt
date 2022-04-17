@@ -3,7 +3,8 @@ package com.example.scalio.remote
 import com.example.scalio.data.remote.UsersApi
 import com.example.scalio.utils.BASE_URL
 import com.example.scalio.utils.LOGIN_IN_QUALIFIER
-import junit.framework.Assert.*
+import junit.framework.Assert.assertNotNull
+import junit.framework.Assert.assertTrue
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
